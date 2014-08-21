@@ -260,6 +260,6 @@ Devise.setup do |config|
     config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
     config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
     config.omniauth :linked_in, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET']
-    config.omniauth :windowslive, ENV['LIVE_KEY'], ENV['LIVE_SECRET'] :scope => 'wl.basic'
+    config.omniauth :windowslive, ENV['LIVE_KEY'], ENV['LIVE_SECRET'], :scope => 'wl.basic'
     end
 end
