@@ -33,6 +33,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-windowslive'
 
 gem 'figaro'
+gem 'bootstrap-sass', '~> 3.1.1'
 
  group :production do
    gem 'pg'
