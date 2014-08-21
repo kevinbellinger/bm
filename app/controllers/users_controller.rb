@@ -33,6 +33,8 @@ class UsersController < ApplicationController
         @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
         redirect_to @user, notice: 'Your profile was successfully updated.'
+        #adding welcome mail
+        UserMailer.welcome_email(@user).deliver_later
       else
         @show_errors = true
       end
