@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
 
+   def hello
+     render text: "<h1>Hello</h1><p>Welcome home</p>"
+   end
+
   def ensure_signup_complete
 
     return if action_name == 'finish_signup'
