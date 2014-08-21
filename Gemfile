@@ -30,6 +30,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'omniauth-windowslive'
 
 gem 'figaro'
 
