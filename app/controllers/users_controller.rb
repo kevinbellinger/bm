@@ -2,17 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-
   end
-
 
   def edit
-
   end
 
-
   def update
-
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
@@ -29,10 +24,10 @@ class UsersController < ApplicationController
   def finish_signup
 
     if request.patch? && params[:user] 
-      if @user.update(user_params)
-        @user.skip_reconfirmation!
-        sign_in(@user, :bypass => true)
-        redirect_to @user, notice: 'Your profile was successfully updated.'
+      if current_user.update_attributes(user_params)
+       #current_user.skip_reconfirmation!
+       sign_in(@user, :bypass => true)
+       redirect_to @user, notice: 'Your profile was successfully updated.'
         #adding welcome mail
         UserMailer.welcome_email(@user).deliver_later
       else
@@ -40,7 +35,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
 
   def destroy
 
