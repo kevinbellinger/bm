@@ -8,8 +8,32 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @bookmark = Bookmark.new
   end
 
-  def edit
-  end
+  def create
+   @bookmark = Bookmark.new(params.require(:bookmark).permit(:title, :body, :hashtag))
+   if @bookmark.save
+     flash[:notice] = "Bookmark was saved."
+     redirect_to @bookmark
+   else
+     flash[:error] = "There was an error saving! Please try again."
+     render :new
+   end
+ end
+
+ def edit
+   @bookmark = Bookmark.find(params[:id])
+ end
+
+ def update
+   @bookmark = Bookmark.find(params[:id])
+   if @bookmark.update_attributes(params.require(:bookmark).permit(:title, :body, :hashtag))
+     flash[:notice] = "Bookmark was updated."
+     redirect_to @bookmark
+   else
+     flash[:error] = "There was an error saving! Please try again."
+     render :edit
+   end
+ end
 end

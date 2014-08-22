@@ -3,8 +3,8 @@
  # Create Bookmarks
  50.times do
    Bookmark.create!(
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph,
+     title: Faker::Company.catch_phrase,  
+     body: Faker::Internet.url,
      hashtag: Faker::Lorem.word
    )
  end
