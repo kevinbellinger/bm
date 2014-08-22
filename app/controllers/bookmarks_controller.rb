@@ -12,7 +12,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
-   @bookmark = Bookmark.new(params.require(:bookmark).permit(:title, :body, :hashtag))
+   # @bookmark = Bookmark.new(params.require(:bookmark).permit(:title, :body, :hashtag))
+   @bookmark = current_user.bookmarks.build(params.require(:bookmark).permit(:title, :body, :hashtag))
    if @bookmark.save
      flash[:notice] = "Bookmark was saved."
      redirect_to @bookmark
