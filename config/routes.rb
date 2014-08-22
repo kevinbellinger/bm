@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bookmarks
+
   root to: 'home#index'
 
   get "home/about"
