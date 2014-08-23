@@ -1,15 +1,17 @@
 <h1>Bookmarks</h1>
 <% @bookmarks.each do |bookmark| %>
-   <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <%= link_to bookmark.title, bookmark %>
-       </h4>
-              <small>
-         submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user.name %><br/>
-         <%= bookmark.comments.count %> Comments
-       </small>
+<div class="media">
+ <div class="media-body">
+   <h4 class="media-heading">
+     <%= link_to bookmark.title, bookmark %>
+   </h4>
+   <small>
+    <%= image_tag(@bookmark.user.avatar.tiny.url) if @bookmark.user.avatar? %>
+    submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user.name %><br/>
+    <%= bookmark.comments.count %> Comments
+  </small>
 
-     </div>
-   </div>
+</div>
+</div>
 <% end %>
+

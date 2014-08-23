@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   has_many :bookmarks
+  mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable

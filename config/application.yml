@@ -19,3 +19,10 @@ SENDGRID_PASSWORD: gg7duujh
 
 MAILGUN_SMTP_LOGIN: postmaster@app28744770.mailgun.org
 MAILGUN_SMTP_PASSWORD: 5th4zx5sr206
+
+AWS_ACCESS_KEY_ID: AKIAIFF63L5OHPF4QAMA
+AWS_SECRET_ACCESS_KEY: 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
+development:
+  AWS_BUCKET: kevinb-bloccit-development
+production:
+  AWS_BUCKET:  kevinb-bloccit-production
