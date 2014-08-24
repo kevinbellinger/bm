@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :bookmarks
     resources :comments, only: [:create, :destroy]
+      resources :favorites, only: [:create, :destroy]
 
   root to: 'home#index'
 
