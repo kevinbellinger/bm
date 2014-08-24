@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :bookmarks
   has_many :comments
-  has_many :favorites, dependent: :destroy
+  has_many :favorites
   
   mount_uploader :avatar, AvatarUploader
 

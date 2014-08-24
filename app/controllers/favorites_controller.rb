@@ -1,8 +1,12 @@
 class FavoritesController < ApplicationController
 
+def new
+end
+
   def create
-    @bookmark = @bookmark.find(params[:bookmark_id])
-    favorite = current_user.favorites.build(bookmark: @bookmark)
+   # @bookmarks = Bookmark.all
+    @bookmark = Bookmark.find(params[:bookmark_id])
+    favorite = current_user.favorites.build(bookmark: @bookmark, user: current_user)
 
       if favorite.save
         flash[:notice] = "Liked Bookmark"

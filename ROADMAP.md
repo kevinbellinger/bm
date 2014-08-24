@@ -6,11 +6,10 @@
 
 * As a user, I want to be able to sign in and out of the Blocmarks application.
 * All bookmarks should be ordered by the date they were submitted, in descending order.
-
+* As a user, I want to be able to email a URL to Blocmarks and have it saved in the Blocmarks database.
 
 ## Pending
 
-* As a user, I want to be able to email a URL to Blocmarks and have it saved in the Blocmarks database.
 * As a user, I want to be able to add a hashtag to an email subject so that my bookmark is categorized.
 * As a user, I want to be able to view an index of all the bookmarks I've saved, organized by topic.
 * As a user, I want to be able to view an index of all bookmarks submitted by all users, organized by topic.

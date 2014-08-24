@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :bookmarks
-    resources :comments, only: [:create, :destroy]
-      resources :favorites, only: [:create, :destroy]
+  resources :bookmarks do
+    #resources :comments, only: [:create, :destroy]
+      resources :favorites do
+    end
+  end
 
   root to: 'home#index'
 

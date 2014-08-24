@@ -3,16 +3,22 @@
 <h1><%= markdown @bookmark.title %></h1>
 <p><%= markdown @bookmark.body %></p>
 <p><%= @bookmark.hashtag %></p>
+    <small>
+      <%= image_tag(@bookmark.user.avatar.tiny.url) if @bookmark.user.avatar? %>
+      submitted <%= time_ago_in_words(@bookmark.created_at) %> ago by
+      <%= @bookmark.user.name %>
+    </small>
+<br>
 <br>
 <%= link_to "Edit", edit_bookmark_path(@bookmark), class: 'btn btn-success' %>
 <%= link_to "Delete Post", [@bookmark], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
 
 <% if favorite = current_user.favorited(@bookmark) %>
-<%= link_to [bookmark, favorite], class: 'btn btn-danger', method: :delete do %>
+<%= link_to bookmark_favorites_path(@bookmark), class: 'btn btn-danger', method: :delete do %>
 <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfavorite
 <% end %>
 <% else %>
-<%= link_to [Favorite.new], class: 'btn btn-primary', method: :post do %>
+<%= link_to bookmark_favorites_path(@bookmark), class: 'btn btn-primary', method: :post do %>
 Like
 <% end %>
 <% end %>
