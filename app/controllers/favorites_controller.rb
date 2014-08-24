@@ -19,7 +19,7 @@ end
 
   def destroy
     # authorize favorite
-    @bookmark = @bookmark.find(params[:bookmark_id])
+    @bookmark = Bookmark.find(params[:bookmark_id])
     favorite = current_user.favorites.find(params[:id])
 
       if favorite.destroy
