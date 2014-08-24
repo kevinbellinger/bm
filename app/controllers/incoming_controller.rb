@@ -11,7 +11,7 @@ class IncomingController < ApplicationController
         # You put the message-splitting and business
         # magic here. 
         user = User.find_by(email: params[:sender])
-        bookmark = user.bookmarks.new(
+        bookmark = Bookmark.new(
          title: params["subject"],
          hashtag: params["subject"]
          body: params["body-plain"]
