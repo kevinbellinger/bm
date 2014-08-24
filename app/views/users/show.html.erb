@@ -2,7 +2,7 @@
    <div class="tabbable tabs-left">
      <ul class="nav nav-tabs">
        <li class="active"><a href="#bookmarks" data-toggle="tab">Bookmarks</a></li>
-       <li><a href="#comments" data-toggle="tab">Comments</a></li>
+       <li><a href="#favorites" data-toggle="tab">Likes</a></li>
      </ul>
      <div class="tab-content">
        <div class="tab-pane active" id="bookmarks">
@@ -10,7 +10,8 @@
 
        </div>
 
-       <div class="tab-pane" id="comments">
+       <div class="tab-pane" id="favorites">
+        <%= @user.favorites %>
 
        </div>
      </div>

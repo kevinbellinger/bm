@@ -4,13 +4,17 @@ class User < ActiveRecord::Base
 
   has_many :bookmarks
   has_many :comments
-
+  has_many :favorites, dependent: :destroy
   
   mount_uploader :avatar, AvatarUploader
 
-   def favorited(bookmark)
-     favorites.where(bookmark_id: bookmark.id).first
-   end
+#   def favorited(bookmark)
+ #    favorites.where(bookmark_id: bookmark.id).first
+ #  end
+
+  def favorited(bookmark)
+    self.favorites.where(bookmark_id: bookmark.id).first
+  end
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable

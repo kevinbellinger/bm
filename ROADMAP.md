@@ -21,3 +21,10 @@
 * As a user, I want to be able to click on a hashtag topic and then display a view with the entire collection of only related bookmarks.
 * As a user, I want to see a list of bookmarks on my personal index that I've added to Blocmarks, in addition to bookmarks that I've liked from other users.
 
+
+## Bugs
+
+* Cannot render favorite partial
+* Cannot render comments partial
+* Cannot view user bookmarks
+* Cannot view user favorites

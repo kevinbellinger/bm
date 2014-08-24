@@ -4,7 +4,15 @@
 <p><%= markdown @bookmark.body %></p>
 <p><%= @bookmark.hashtag %></p>
 <br>
- <%= link_to "Edit", edit_bookmark_path(@bookmark), class: 'btn btn-success' %>
- <%= link_to "Delete Post", [@bookmark], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
- <%= render partial: 'favorites/favorite', locals: { bookmark: @bookmark } %>
- <% end %>
+<%= link_to "Edit", edit_bookmark_path(@bookmark), class: 'btn btn-success' %>
+<%= link_to "Delete Post", [@bookmark], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this bookmark?' } %>
+
+<% if favorite = current_user.favorited(@bookmark) %>
+<%= link_to [bookmark, favorite], class: 'btn btn-danger', method: :delete do %>
+<i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unfavorite
+<% end %>
+<% else %>
+<%= link_to [Favorite.new], class: 'btn btn-primary', method: :post do %>
+Like
+<% end %>
+<% end %>
