@@ -40,6 +40,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
+# Adding Elastic-Search
+gem 'elasticsearch-model' 
+gem 'elasticsearch-rails'
+
  group :production do
    gem 'pg'
    gem 'rails_12factor'
