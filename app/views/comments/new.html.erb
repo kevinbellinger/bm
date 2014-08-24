@@ -1,0 +1,16 @@
+
+<h1>New Comment</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for comments</p>
+    <ul>
+      <li>Be Brief</li>
+      <li>Be Nice</li>
+      <li>Be Gone</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= render partial: 'form', locals: { bookmark: @bookmark, comment: @comment } %>
+  </div>
+</div>

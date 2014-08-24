@@ -2,4 +2,9 @@
 <p><%= markdown @bookmark.body %></p>
 <p><%= @bookmark.hashtag %></p>
 <br>
+
+<div class='js-comments'>
+    <%= render partial: 'comments/comment', collection: @comments %>
+</div>
+
  <%= link_to "Edit", edit_bookmark_path(@bookmark), class: 'btn btn-success' %>

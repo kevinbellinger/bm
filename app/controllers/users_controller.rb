@@ -1,22 +1,23 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
+  
   def show
+#    @user = User.find(params[:id])
+#    @bookmarks = @user.bookmarks
+#    @comments = @user.comments
+
   end
 
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        sign_in(@user == current_user ? @user : current_user, :bypass => true)
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if current_user.update_attributes(user_params)
+      flash[:notice] = "User information updated"
+      redirect_to edit_user_registration_path(current_user)
+    else
+      render "devise/registrations/edit"
     end
   end
 
@@ -26,10 +27,11 @@ class UsersController < ApplicationController
     if request.patch? && params[:user] 
       if current_user.update_attributes(user_params)
        #current_user.skip_reconfirmation!
-       sign_in(@user, :bypass => true)
-       redirect_to @user, notice: 'Your profile was successfully updated.'
+       #sign_in(@user, :bypass => true)
+       flash[:notice] = "Your profile was successfully updated"
+       redirect_to bookmarks_path
         #adding welcome mail
-        UserMailer.welcome_email(@user).deliver_later
+       # UserMailer.welcome_email(@user).deliver_later
       else
         @show_errors = true
       end

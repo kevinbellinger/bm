@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :bookmarks
+    resources :comments, only: [:create, :destroy]
 
   root to: 'home#index'
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   get "bookmarks/index"
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+    resources :users
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 

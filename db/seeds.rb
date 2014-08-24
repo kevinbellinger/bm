@@ -1,7 +1,7 @@
  require 'faker'
  
   # Create Users
-  5.times do
+  10.times do
     user = User.new(
       name:     Faker::Name.name,
       email:    Faker::Internet.email,
@@ -13,7 +13,7 @@
   users = User.all
 
  # Create Bookmarks
- 50.times do
+ 20.times do
    Bookmark.create!(
      user:   users.sample,
      title: Faker::Company.catch_phrase,  
@@ -26,15 +26,14 @@
  # Create Comments
  100.times do
    Comment.create!(
+     user: users.sample,
      bookmark: bookmarks.sample,
      body: Faker::Lorem.paragraph
      )
  end
- 
-User.first.update_attributes!(
-  email: 'kevin@glider.io',
-  password: 'helloworld',
-)
+ comments = Comment.all
+
+
  
  puts "Seed finished"
  puts "#{User.count} users created"
