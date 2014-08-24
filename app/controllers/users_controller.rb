@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   
   def show
-#    @user = User.find(params[:id])
-#    @bookmarks = @user.bookmarks
-#    @comments = @user.comments
+    @user = User.find(params[:id])
+    @bookmarks = @user.bookmarks
+    @comments = @user.comments
 
   end
 
