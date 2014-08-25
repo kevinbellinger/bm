@@ -12,19 +12,19 @@
 * As a user, I want to be able to add a hashtag to an email subject so that my bookmark is categorized.
 * As a user, I want to see a list of bookmarks on my personal index that I've added to Blocmarks, in addition to bookmarks that I've liked from other users.
 
-## Pending
+
+## Partially Implemented
 
 ### Views 
 * As a user, I want to be able to view an index of all the bookmarks I've saved, organized by topic.
 * As a user, I want to be able to view an index of all bookmarks submitted by all users, organized by topic.
+* As a user, I want to be able to "unlike" another user's bookmark, so that it will not appear on my personal bookmark index.
 
+## Pending
 
 ### Search
 * As a user, I want to be able to click on a hashtag topic and then display a view with the entire collection of only related bookmarks.
 
 ## Bugs
 
-* As a user, I want to be able to "unlike" another user's bookmark, so that it will not appear on my personal bookmark index.
-
-* Cannot view user bookmarks - fixed. 
 * Cannot view user favorites
