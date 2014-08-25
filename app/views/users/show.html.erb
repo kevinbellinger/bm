@@ -6,14 +6,18 @@
      </ul>
      <div class="tab-content">
        <div class="tab-pane active" id="bookmarks">
-        <%= current_user.bookmarks %>
-
-       </div>
-
-       <div class="tab-pane" id="favorites">
-        <%= @user.favorites %>
-
-       </div>
+        <br>
+        <p>
+          <% @bookmarks.each do |bookmarks| %>
+          <%= link_to bookmarks.title, bookmarks %>
+          <small>
+           Created <%= time_ago_in_words(bookmarks.created_at) %><br/>
+         </small>
+       </p>
+       <% end %>
+     </div>
+     <div class="tab-pane" id="favorites">
      </div>
    </div>
  </div>
+</div>
