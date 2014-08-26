@@ -27,4 +27,4 @@
 
 ## Bugs
 
-* Cannot view user favorites
+

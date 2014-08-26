@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :bookmarks
   has_many :comments
-  has_many :favorites
+  has_many :favorites, class_name: 'Bookmark', foreign_key: :id
   
   mount_uploader :avatar, AvatarUploader
 

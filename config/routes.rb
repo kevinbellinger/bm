@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   get "bookmarks/index"
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-  resources :users
+  
+  resources :users do
+  resources :favorites do
+    end
+  end
+
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 

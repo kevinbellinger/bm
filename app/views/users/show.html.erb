@@ -19,11 +19,9 @@
      <div class="tab-pane" id="favorites">
  <br>
         <p>
-          <% @bookmarks.each do |bookmarks| %>
-          <%= link_to bookmarks.title, bookmarks %>
-          <small>
-           Created <%= time_ago_in_words(bookmarks.created_at) %><br/>
-         </small>
+          <% @favorites.each do |favorites| %>
+          <%= link_to favorites.title, favorites %>
+
        </p>
        <% end %>
 
