@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :comments
   has_many :favorites, class_name: 'Bookmark', foreign_key: :id
-  
+  has_many :favorited_bookmarks, through: :favorites
+
+
   mount_uploader :avatar, AvatarUploader
 
 #   def favorited(bookmark)

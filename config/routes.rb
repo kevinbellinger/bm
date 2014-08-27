@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   resources :bookmarks do
+    resources :users do
     resources :favorites do
     end
   end
+end
 
   root to: 'home#index'
 
@@ -12,9 +14,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   
   resources :users do
-  resources :favorites do
-    end
+
+      resources :favorites do
+
   end
+end
 
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup

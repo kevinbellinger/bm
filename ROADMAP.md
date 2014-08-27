@@ -16,6 +16,7 @@
 ## Partially Implemented
 
 ### Views 
+
 * As a user, I want to be able to view an index of all the bookmarks I've saved, organized by topic.
 * As a user, I want to be able to view an index of all bookmarks submitted by all users, organized by topic.
 * As a user, I want to be able to "unlike" another user's bookmark, so that it will not appear on my personal bookmark index.
