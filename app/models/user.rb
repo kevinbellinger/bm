@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :bookmarks
   has_many :comments
-  has_many :favorites, class_name: 'Bookmark', foreign_key: :id
-  has_many :favorited_bookmarks, through: :favorites
+  # has_many :favorites, class_name: 'Bookmark', foreign_key: :id
+  has_many :favorites, through: :bookmarks
 
 
   mount_uploader :avatar, AvatarUploader

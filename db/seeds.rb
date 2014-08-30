@@ -12,6 +12,13 @@
   end
   users = User.all
 
+kevin = User.new(
+  name:     'Kevin',
+  email:    'kevin@example.com',
+  password: 'helloworld',
+  )
+kevin.save
+
  # Create Bookmarks
  20.times do
    Bookmark.create!(
@@ -24,18 +31,17 @@
  bookmarks = Bookmark.all
  
  # Create Comments
- 100.times do
-   Comment.create!(
-     user: users.sample,
-     bookmark: bookmarks.sample,
-     body: Faker::Lorem.paragraph
+ 1000.times do
+   Favorite.create!(
+     user_id: users.sample,
+     bookmark_id: bookmarks.sample,
+     #body: Faker::Lorem.paragraph
      )
  end
- comments = Comment.all
-
+ favorites = Favorite.all
 
  
  puts "Seed finished"
  puts "#{User.count} users created"
  puts "#{Bookmark.count} bookmarks created"
- puts "#{Comment.count} comments created"
+ puts "#{Favorite.count} likes created"

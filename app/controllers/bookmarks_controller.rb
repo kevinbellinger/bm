@@ -4,9 +4,9 @@ class BookmarksController < ApplicationController
   end
 
   def show
+    @user = current_user
     @bookmark = Bookmark.find(params[:id])
-    @comment = Comment.new
-    @comments = @bookmark.comments
+    @favorite = @user.favorites
   end
 
   def new

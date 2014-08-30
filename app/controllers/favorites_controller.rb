@@ -14,7 +14,7 @@ end
   
     @user = current_user
     @bookmark = Bookmark.find(params[:bookmark_id])
-    @favorite = @bookmark.favorites.build(user_id: @user, bookmark_id: @bookmark) 
+    @favorite = Favorite.create(user_id: @user, bookmark_id: @bookmark) 
 
       if @favorite.save
         flash[:notice] = "Liked Bookmark"

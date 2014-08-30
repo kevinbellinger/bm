@@ -19,8 +19,8 @@
      <div class="tab-pane" id="favorites">
  <br>
         <p>
-          <% @favorites.each do |favorites| %>
-          <%= link_to favorites.title, favorites %>
+          <% @favorites.each do |favorite| %>
+          <%= link_to favorite.title, favorite %>
 
        </p>
        <% end %>
