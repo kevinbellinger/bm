@@ -1,42 +1,40 @@
 class FavoritesController < ApplicationController
 
-def new
+  def new
     @bookmark = Bookmark.find(params[:bookmark_id])
 
-end
-
-def show
-   @bookmarks = Bookmark.all
-
-end
-
-  def create
-  
-    @user = current_user
-    @bookmark = Bookmark.find(params[:bookmark_id])
-    @favorite = Favorite.create(user_id: @user, bookmark_id: @bookmark) 
-
-      if @favorite.save
-        flash[:notice] = "Liked Bookmark"
-        redirect_to [@bookmark]
-      else
-        flash[:error] = "Unable to like"
-        redirect_to [@bookmark]
-      end
   end
 
-  def destroy
-    # authorize favorite
+  def show
+   @bookmarks = Bookmark.all
+
+ end
+
+ def create
+  @user = current_user
+  @bookmark = Bookmark.find(params[:bookmark_id])
+  @favorite = Favorite.create(user: @user, bookmark_id: @bookmark.id) 
+
+  if @favorite.save
+    flash[:notice] = "Liked Bookmark"
+    redirect_to [@bookmark]
+  else
+    flash[:error] = "Unable to like"
+    redirect_to [@bookmark]
+  end
+end
+
+def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
     @favorite = current_user.favorites.find(params[:id])
 
-      if favorite.destroy
-        flash[:notice] = "Removed like."
-        redirect_to [@bookmark]
-      else
-        flash[:error] = "Unable to remove like. Please try again."
-        redirect_to [@bookmark]
-      end
+    if @favorite.destroy
+      flash[:notice] = "Removed like."
+      redirect_to [@bookmark]
+    else
+      flash[:error] = "Unable to remove like. Please try again."
+      redirect_to [@bookmark]
+    end
   end
 
   private

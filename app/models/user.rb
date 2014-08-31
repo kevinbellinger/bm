@@ -4,15 +4,11 @@ class User < ActiveRecord::Base
 
   has_many :bookmarks
   has_many :comments
-  # has_many :favorites, class_name: 'Bookmark', foreign_key: :id
-  has_many :favorites, through: :bookmarks
+  has_many :favorites
 
 
   mount_uploader :avatar, AvatarUploader
 
-#   def favorited(bookmark)
- #    favorites.where(bookmark_id: bookmark.id).first
- #  end
 
   def favorited(bookmark)
     self.favorites.where(bookmark_id: bookmark.id).first

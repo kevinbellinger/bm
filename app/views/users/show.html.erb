@@ -17,16 +17,13 @@
        <% end %>
      </div>
      <div class="tab-pane" id="favorites">
- <br>
-        <p>
-          <% @favorites.each do |favorite| %>
-          <%= link_to favorite.title, favorite %>
-
-       </p>
-       <% end %>
-
-
-     </div>
-   </div>
- </div>
+       <br>
+       <p>
+        <% @favorites.each do |favorite| %>
+        <%= link_to favorite.bookmark.title, favorite.bookmark %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
