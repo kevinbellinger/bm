@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+
   def index
     @bookmarks = Bookmark.all
   end
@@ -52,5 +53,6 @@ class BookmarksController < ApplicationController
     render :show
   end
 end
-
 end
+
+

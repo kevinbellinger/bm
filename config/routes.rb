@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   resources :incoming
 
+  get 'search', to: 'search#search'
+
 end
