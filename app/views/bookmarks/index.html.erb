@@ -1,13 +1,31 @@
-<h1>Bookmarks</h1>
-<%= link_to "New Bookmark", new_bookmark_path, class: 'btn btn-success' %>
-<% @bookmarks.each do |bookmark| %>
-<div class="media"> 
-  <div class="media-body">
-    <h4 class="media-heading">
-      <%= link_to bookmark.title, bookmark %>
-    </h4>
 
+
+<div class="row">
+   <div class="tabbable tabs-left">
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#bookmarks" data-toggle="tab">Bookmarks</a></li>
+       <li><a href="#hashtags" data-toggle="tab">Hashtags</a></li>
+     </ul>
+     <div class="tab-content">
+       <div class="tab-pane active" id="bookmarks">
+        <br>
+        <p>
+          <% @bookmarks.each do |bookmarks| %>
+          <%= link_to bookmarks.title, bookmarks %>
+          <small>
+           Created <%= time_ago_in_words(bookmarks.created_at) %><br/>
+         </small>
+       </p>
+       <% end %>
+     </div>
+     <div class="tab-pane" id="hashtags">
+       <br>
+       <p>
+        <% @bookmarks.each do |bookmarks| %>
+        <%= link_to bookmarks.hashtag, bookmarks %>
+      </p>
+      <% end %>
+    </div>
   </div>
 </div>
-<% end %>
-
+</div>

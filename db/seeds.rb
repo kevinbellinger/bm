@@ -25,12 +25,12 @@ kevin.save
      user:   users.sample,
      title: Faker::Company.catch_phrase,  
      body: Faker::Internet.url,
-     hashtag: Faker::Lorem.word
+     hashtag: "##{Faker::Lorem.word}"
      )
  end
  bookmarks = Bookmark.all
  
- # Create Comments
+ # Create Likes
  1000.times do
    Favorite.create!(
      user_id: users.sample,

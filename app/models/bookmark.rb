@@ -32,9 +32,6 @@ def self.search(query)
   )
 end
 
-
-
-
 # Delete the previous articles index in Elasticsearch
 Bookmark.__elasticsearch__.client.indices.delete index: Bookmark.index_name rescue nil
  
